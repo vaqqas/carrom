@@ -1,0 +1,16 @@
+﻿.Border1pxSolidBlack
+{
+	border:1px solid black;	
+}
+
+.Padding0
+{
+	padding:0px;	
+}
+
+#mainDiv
+{
+	position: relative; padding-left: 20px; border: 1px solid black; width: 520px; height: 520px;	
+}
+
+

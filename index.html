@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--Copyright 2013 M. Vaqqas-->
+
+<html>
+<meta charset="UTF-8">
+<head>
+<title>Carrom!!</title>
+<link type="text/css" href="./css/VqsCarromStyleSheet.css" />
+<style type="text/css">
+.Border1pxSolidBlack
+{
+	border:1px solid LightGray;	
+}
+
+.Padding0
+{
+	padding:0px;	
+}
+
+.Padding3
+{
+	padding:3px;	
+}
+
+#mainDiv
+{
+	position: relative; 
+	width: 500px; 
+	height: 520px;	
+}
+
+#bodyDiv
+{
+	margin: 0 auto; 
+	width: 500px; 
+}
+
+.CarromCanvas
+{
+	position:absolute; 
+	top:0; 
+	left:0;	
+}
+
+.BottomBar
+{
+	padding:10px;
+	background-color:Gray;
+}
+
+.WoodenBackground
+{
+	background-image:url("./images/BottomBarBg.jpg");
+	background-repeat:no-repeat;
+	background-size:100% 100%;	
+}
+
+.OakBackground
+{
+	background-image:url("./images/OakWoodBgTile.jpg");
+	background-repeat:no-repeat;
+	background-size:100% 100%;	
+}
+
+.ScoreCard
+{
+	color:White; 
+	font-family:Comic Sans MS;
+	font-weight:bold;
+	font-size:16pt;
+	text-align:center;
+}
+
+.MessageBoard
+{
+	color:White; 
+	font-family:Comic Sans MS;
+	font-weight:bold;
+	font-size:16pt;
+	text-align:center;
+}
+
+header
+{
+	font-family:Comic Sans MS;
+	font-weight:bold;
+	font-size:36pt;
+	text-align:center;
+	padding:10px 10px 10px 10px;
+	margin-bottom:20px;
+}
+
+footer
+{
+	text-align:right;
+	margin-top:40px;
+	/*background-color:#8AA0B6;*/
+}
+
+</style>
+
+
+</head>
+<body onload="init()">
+
+<header class="WoodenBackground">Carr<span style="color:Red">o</span>m!!</header>
+<nav></nav>
+
+<div id="bodyDiv">
+<table class="Border1pxSolidBlack">
+<tr>
+<td class="Border1pxSolidBlack">
+	<div id="mainDiv">
+		<canvas id="canvasBackground" class="CarromCanvas" height="500px" width="500px"></canvas>
+		<canvas id="canvasCarrom" class="CarromCanvas" height="500px" width="500px"></canvas>
+		<canvas id="canvasMessages" class="CarromCanvas" height="500px" width="500px"></canvas>
+		<!--<div class="WoodenBackground" style="position:absolute; left:0px; top:500px; width:100%; height:20px"></div>-->
+	</div>
+</td>
+</tr>
+<tr>
+<td class="Border1pxSolidBlack">
+<div> 
+	<div style="float:left;">Striking Power:&nbsp</div>
+	<div style="float:left;"><input type="range" id="rngStrikingPower" min="1" max="100" value="" />&nbsp</div>
+	<div style="float:left;"><output id="rngStrikingPower_output"></output> </div>
+	<div style="float:right;"><a href="Help.html">Help</a> &nbsp|&nbsp <a href="" onclick="restart();">Restart</a></div>
+</div>
+</td>
+</tr>
+<tr>
+	<td class="Border1pxSolidBlack BottomBar OakBackground">
+		<div class="ScoreCard" style="float:left"><span id="player1Name">Player 1</span><br /><span id="player1Score">0</span><br /></div>
+		<div class="MessageBoard" style="float:left; text-align:center; width:62%"><span id="spanMessages"></span></div>
+		<div class="ScoreCard" style="float:right"><span id="player2Name">Player 2</span><br /><span id="player2Score">0</span></div>
+	</td>
+</tr>
+</table>
+</div>
+
+<aside></aside>
+<footer>&copy M. Vaqqas</footer>
+
+<!--Hidden elements for preloading purpose-->
+
+	<img id="bgBoardImage" width="0" height="0" src="images/Board_Challanger_500x500_JPG.jpg" alt="VqsCarrom Board" />
+	<img id="striker" width="0" height="0" src="images/striker.gif" alt="S" />
+	<div id="cursorAim"></div>
+	<div id="cursorOpenHand"></div>
+	<div id="cursorGrab"></div>
+	<div id="cursorAfterShot"></div>
+
+
+<script type="text/javascript" src="./js/Box2dWeb-2.1.a.3.js"></script>
+<script type="text/javascript" src="./js/Extensions.js"></script>
+<script type="text/javascript" src="./js/VqsWorld.js"></script>
+<script type="text/javascript" src="./js/VqsGeometry.js"></script>
+<script type="text/javascript" src="./js/VqsSettings.js"></script>
+<script type="text/javascript" src="./js/VqsBoard.js"></script>
+
+</body>
+</html>
