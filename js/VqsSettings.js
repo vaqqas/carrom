@@ -57,7 +57,7 @@ var Settings = {
 	borderWidth: 23,
 	strikingPowerDefault: 50,
 	aimingLineOpacity: 0.18,
-	pieceCount: 6
+	pieceCount: 20
 };
 
 var PieceType = {
