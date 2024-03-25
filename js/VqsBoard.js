@@ -1,6 +1,34 @@
 ﻿/*
 Copyright 2013 M. Vaqqas
 */
+
+//starting point of the code
+function init() {
+	var board = new Board();
+	var mainDiv = document.getElementById('mainDiv');
+	mainDiv.addEventListener("mousemove", function (event) { onMouseMove(event, board); }, false);
+	mainDiv.addEventListener("mouseup", function (event) { onMouseUp(event, board); }, false);
+	mainDiv.addEventListener("mousedown", function (event) { onMouseDown(event, board); }, false);
+
+	var rangePower = document.getElementById('rngStrikingPower');
+	var rangePowerOutput = document.getElementById('rngStrikingPower_output');
+	rangePower.value = Settings.strikingPowerDefault;
+	rangePowerOutput.value = rangePower.value;
+	
+	rangePower.addEventListener("change", function (event) {
+		board.strikingPower = rangePower.value;
+		rangePowerOutput.value = rangePower.value;
+	}, false);
+
+	board.setupPhysics(true); //with degug draw
+	//board.draw();  ///first test with debug draw then test the actual draw
+
+	//setInterval(function () { play(board); }, 1);
+	//setTimeout(function () {
+	play(board);
+	//}, 100);
+}
+
 function line(p1, p2, width, color, opacity) {
 	this.start = p1;
 	this.end = p2;
@@ -396,7 +424,7 @@ applyRules = function (players, pieces, turn, piecesPocketed, queenNeedsCover) {
 			for (var id in pieces) { //putback all the pieces you pocketed in this shot
 				if (id && pieces.hasOwnProperty(id) && pieces[id]
 						&& pieces[id].type == player.color && pieces[id].isInPocket
-						&& !result.piecesToPutBack.contains(id)) { //not already in putback list
+						&& !result.piecesToPutBack.includes(id)) { //not already in putback list
 					result.piecesToPutBack.push(id);
 					break;
 				}
@@ -745,31 +773,7 @@ function play(board) {
 	}
 }
 
-function init() {
-	var board = new Board();
-	var mainDiv = document.getElementById('mainDiv');
-	mainDiv.addEventListener("mousemove", function (event) { onMouseMove(event, board); }, false);
-	mainDiv.addEventListener("mouseup", function (event) { onMouseUp(event, board); }, false);
-	mainDiv.addEventListener("mousedown", function (event) { onMouseDown(event, board); }, false);
 
-	var rangePower = document.getElementById('rngStrikingPower');
-	var rangePowerOutput = document.getElementById('rngStrikingPower_output');
-	rangePower.value = Settings.strikingPowerDefault;
-	rangePowerOutput.value = rangePower.value;
-	
-	rangePower.addEventListener("change", function (event) {
-		board.strikingPower = rangePower.value;
-		rangePowerOutput.value = rangePower.value;
-	}, false);
-
-	board.setupPhysics(true); //with degug draw
-	//board.draw();  ///first test with debug draw then test the actual draw
-
-	//setInterval(function () { play(board); }, 1);
-	//setTimeout(function () {
-	play(board);
-	//}, 100);
-}
 
 function onMouseMove(event, board) {
 	board.start = true;

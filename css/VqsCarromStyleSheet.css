@@ -13,4 +13,93 @@
 	position: relative; padding-left: 20px; border: 1px solid black; width: 520px; height: 520px;	
 }
 
+.Border1pxSolidBlack
+{
+	border:1px solid LightGray;	
+}
+
+.Padding0
+{
+	padding:0px;	
+}
+
+.Padding3
+{
+	padding:3px;	
+}
+
+#mainDiv
+{
+	position: relative; 
+	width: 500px; 
+	height: 520px;	
+}
+
+#bodyDiv
+{
+	margin: 0 auto; 
+	width: 500px; 
+}
+
+.CarromCanvas
+{
+	position:absolute; 
+	top:0; 
+	left:0;	
+}
+
+.BottomBar
+{
+	padding:10px;
+	background-color:Gray;
+}
+
+.WoodenBackground
+{
+	background-image:url("../images/BottomBarBg.jpg");
+	background-repeat:no-repeat;
+	background-size:100% 100%;	
+}
+
+.OakBackground
+{
+	background-image:url("../images/OakWoodBgTile.jpg");
+	background-repeat:no-repeat;
+	background-size:100% 100%;	
+}
+
+.ScoreCard
+{
+	color:White; 
+	font-family:Comic Sans MS;
+	font-weight:bold;
+	font-size:16pt;
+	text-align:center;
+}
+
+.MessageBoard
+{
+	color:White; 
+	font-family:Comic Sans MS;
+	font-weight:bold;
+	font-size:16pt;
+	text-align:center;
+}
+
+header
+{
+	font-family:Comic Sans MS;
+	font-weight:bold;
+	font-size:36pt;
+	text-align:center;
+	padding:10px 10px 10px 10px;
+	margin-bottom:20px;
+}
+
+footer
+{
+	text-align:right;
+	margin-top:40px;
+	/*background-color:#8AA0B6;*/
+}
 
