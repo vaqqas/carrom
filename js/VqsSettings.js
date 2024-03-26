@@ -121,10 +121,8 @@ function RulesResult() {
 	this.queenPocketed = false;
 }
 
-Vqs.b2ContactListener.prototype.BeginContact = function (contact) {
-	setTimeout(function () {
-		var audio = new Audio("./sounds/hit.wav");
-		audio.play();
-		delete audio;
-	});
+var audio = new Audio("./sounds/hit.wav");
+
+Vqs.b2ContactListener.prototype.BeginContact = function (contact) {	
+	audio.play();
 };
