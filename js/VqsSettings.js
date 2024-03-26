@@ -121,8 +121,7 @@ function RulesResult() {
 	this.queenPocketed = false;
 }
 
-var audio = new Audio("./sounds/hit.wav");
-
+var audio = document.getElementById('hitSound'); // new Audio("./sounds/hit.wav");
 Vqs.b2ContactListener.prototype.BeginContact = function (contact) {	
-	audio.play();
+	audio.play().catch(err => {});
 };
